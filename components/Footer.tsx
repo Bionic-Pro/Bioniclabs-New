@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rocket, Twitter, Instagram, Mail } from 'lucide-react';
+import { Rocket, Twitter, Music, Mail } from 'lucide-react';
 
 interface FooterProps {
   onOpenLegal: (type: 'privacy' | 'terms' | 'cookies') => void;
@@ -69,21 +69,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               <h4 className="text-white font-bold mb-4">Connect</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <a href="https://x.com/M3Bionic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Twitter size={16} />
                     <span>Twitter</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Instagram size={16} />
-                    <span>Instagram</span>
+                  <a href="https://www.tiktok.com/@m3bionic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Music size={16} />
+                    <span>TikTok</span>
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:hello@bionic.labs" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <a href="mailto:m3bionic@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Mail size={16} />
-                    <span>Email</span>
+                    <span>m3bionic@gmail.com</span>
                   </a>
                 </li>
               </ul>
