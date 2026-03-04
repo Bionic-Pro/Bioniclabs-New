@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   { name: 'BionicAI', href: '#bionicai' },
   { name: 'Ride or Die', href: '#rideordie' },
   { name: 'VibeCard', href: '#vibecard' },
-  { name: 'Labs', href: '#future' },
+  { name: 'Incubation', href: '#future' },
 ];
 
 export const TRADING_PRODUCT: ProductData = {

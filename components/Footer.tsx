@@ -1,7 +1,11 @@
 import React from 'react';
 import { Rocket, Twitter, Instagram, Mail } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenLegal: (type: 'privacy' | 'terms' | 'cookies') => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   return (
     <footer id="footer" className="bg-bionic-900 pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-6">
@@ -21,7 +25,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             <div>
               <h4 className="text-white font-bold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
@@ -30,28 +34,59 @@ export const Footer: React.FC = () => {
                 <li><a href="#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</a></li>
               </ul>
             </div>
+
+            <div>
+              <h4 className="text-white font-bold mb-4">Incubation</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li><a href="#clarity" className="hover:text-blue-400 transition-colors">ClarityLaw AI</a></li>
+                <li><a href="#bucatarasul" className="hover:text-yellow-400 transition-colors">Bucătărașul</a></li>
+                <li><a href="#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</a></li>
+              </ul>
+            </div>
             
             <div>
               <h4 className="text-white font-bold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li>
+                  <button onClick={() => onOpenLegal('privacy')} className="hover:text-cyan-400 transition-colors text-left">
+                    Privacy Policy
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => onOpenLegal('terms')} className="hover:text-red-400 transition-colors text-left">
+                    Terms of Service
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => onOpenLegal('cookies')} className="hover:text-yellow-400 transition-colors text-left">
+                    Cookie Policy
+                  </button>
+                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold mb-4">Connect</h4>
-              <div className="flex gap-4">
-                <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition-all">
-                  <Twitter size={16} />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition-all">
-                  <Instagram size={16} />
-                </a>
-                <a href="mailto:hello@bionic.labs" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 text-gray-400 hover:text-white transition-all">
-                  <Mail size={16} />
-                </a>
-              </div>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Twitter size={16} />
+                    <span>Twitter</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Instagram size={16} />
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:hello@bionic.labs" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Mail size={16} />
+                    <span>Email</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
