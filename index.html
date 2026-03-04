@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Bionic.labs | Digital Innovation Ecosystem</title>
+    <meta name="description" content="The central hub for VibeCard, BionicAI Trading, and FUCKIN' RIDE OR DIE. Experience the future of digital tools." />
+    <meta property="og:title" content="Bionic.labs Showcase" />
+    <meta property="og:description" content="Discover VibeCard, AI Trading, and more in one sleek ecosystem." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://picsum.photos/1200/630?grayscale" />
+    
+    <!-- Fonts: Space Grotesk for headers (Tech feel), Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            colors: {
+              bionic: {
+                900: '#0a0a0f',
+                800: '#12121a',
+                purple: '#8b5cf6',
+                cyan: '#06b6d4',
+                green: '#10b981',
+                red: '#ef4444',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050507;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0f; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      .glass-panel-hover:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .text-glow-purple {
+        text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+      }
+      
+      .text-glow-green {
+        text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+      }
+      
+      .text-glow-red {
+        text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.33.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
