@@ -23,6 +23,7 @@ const INDICATORS = [
   {
     id: 'v4-proven-enhanced',
     name: 'V4.1 Proven Enhanced',
+    stripeProductId: 'prod_U6xawZia0AqzOR',
     description: 'Refined version with better entries, higher win rate, and reduced drawdown. The smart choice for consistent growth.',
     price: '$19.99',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop', // Person using black and gray laptop computer
@@ -39,6 +40,7 @@ const INDICATORS = [
   {
     id: 'v4-proven-turbo',
     name: 'V4.2 Proven Turbo',
+    stripeProductId: 'prod_U6ya8Y5jxh2l3P',
     description: 'The ultimate trading engine. Features adaptive exits and turbo-charged entry logic for maximum market extraction.',
     price: '$39.99',
     image: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=1600&auto=format&fit=crop', // Person holding coin in front of computer
@@ -59,6 +61,30 @@ export const TradingIndicators: React.FC = () => {
 
   const handleFlip = (id: string) => {
     setFlippedCard(flippedCard === id ? null : id);
+  };
+
+  const handleBuy = async (productId: string) => {
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productId }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const { url } = await response.json();
+      if (url) {
+        window.location.href = url;
+      }
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+      alert('Failed to initiate checkout. Please try again.');
+    }
   };
 
   return (
@@ -152,7 +178,10 @@ export const TradingIndicators: React.FC = () => {
                           )}
                         </a>
                       ) : (
-                        <button className="flex-1 py-3 bg-white/5 hover:bg-emerald-600 hover:text-white text-gray-300 font-bold rounded-xl border border-white/10 hover:border-emerald-500/50 transition-all flex items-center justify-center gap-2 group/btn">
+                        <button 
+                          onClick={() => indicator.stripeProductId && handleBuy(indicator.stripeProductId)}
+                          className="flex-1 py-3 bg-white/5 hover:bg-emerald-600 hover:text-white text-gray-300 font-bold rounded-xl border border-white/10 hover:border-emerald-500/50 transition-all flex items-center justify-center gap-2 group/btn"
+                        >
                           <span>{indicator.price === 'Free' ? 'Get Free' : 'Buy Now'}</span>
                           {indicator.price === 'Free' ? (
                              <ArrowRight size={16} />
