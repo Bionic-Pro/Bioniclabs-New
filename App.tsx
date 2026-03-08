@@ -7,6 +7,7 @@ import { FutureLabs } from './components/FutureLabs';
 import { Footer } from './components/Footer';
 import { LegalModal } from './components/LegalModal';
 import { CookieConsent } from './components/CookieConsent';
+import { TradingIndicators } from './components/TradingIndicators';
 import { TRADING_PRODUCT, RIDE_OR_DIE_PRODUCT } from './constants';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -68,6 +69,16 @@ function App() {
           variants={sectionVariants}
         >
           <GenericProductSection product={TRADING_PRODUCT} />
+        </motion.div>
+
+        {/* 1.5. Trading Indicators (New Section) */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={sectionVariants}
+        >
+          <TradingIndicators />
         </motion.div>
         
         {/* 2. Ride Or Die (Generic) - Reverse Order (Visual Right) */}
