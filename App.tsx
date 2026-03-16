@@ -9,15 +9,15 @@ import { LegalModal } from './components/LegalModal';
 import { CookieConsent } from './components/CookieConsent';
 import { TradingIndicators } from './components/TradingIndicators';
 import { TRADING_PRODUCT, RIDE_OR_DIE_PRODUCT } from './constants';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 function App() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  // const { scrollYProgress } = useScroll();
+  // const scaleX = useSpring(scrollYProgress, {
+  //   stiffness: 100,
+  //   damping: 30,
+  //   restDelta: 0.001
+  // });
 
   const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' | 'cookies' | null }>({
     isOpen: false,
@@ -44,10 +44,10 @@ function App() {
   return (
     <div className="bg-bionic-900 text-white min-h-screen font-sans selection:bg-cyan-500/30 overflow-x-hidden">
       {/* Scroll Progress Bar */}
-      <motion.div
+      {/* <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-red-500 origin-left z-[100]"
         style={{ scaleX }}
-      />
+      /> */}
 
       <Navbar />
       

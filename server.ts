@@ -1,18 +1,10 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
-import Stripe from "stripe";
 import helmet from "helmet";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import DOMPurify from "isomorphic-dompurify";
 import { createClient } from "@supabase/supabase-js";
-
-// Initialize Stripe
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2025-02-24.acacia",
-    })
-  : null;
 
 // Initialize Supabase (if env vars are present)
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -76,8 +68,8 @@ async function startServer() {
 
   // 5. Auth Middleware (Supabase)
   const requireAuth = async (req: any, res: any, next: any) => {
-    // Skip auth for public routes (e.g., health check, checkout for now if needed)
-    if (req.path === '/api/health' || req.path === '/api/create-checkout-session') {
+    // Skip auth for public routes (e.g., health check)
+    if (req.path === '/api/health') {
       return next();
     }
 
@@ -109,73 +101,6 @@ async function startServer() {
   // API Routes
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
-  });
-
-  // Stripe Checkout Session Endpoint
-  app.post("/api/create-checkout-session", async (req, res) => {
-    if (!stripe) {
-      return res.status(500).json({ error: "Stripe is not configured on the server." });
-    }
-
-    const { productId, priceId } = req.body;
-
-    try {
-      let sessionConfig: Stripe.Checkout.SessionCreateParams = {
-        payment_method_types: ["card"],
-        mode: "payment",
-        success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${req.headers.origin}/`,
-        line_items: [],
-      };
-
-      // If a specific Price ID is provided, use it
-      if (priceId) {
-        sessionConfig.line_items = [
-          {
-            price: priceId,
-            quantity: 1,
-          },
-        ];
-      } else if (productId) {
-        // Fallback: If only Product ID is provided, we need to determine the price
-        // This is less ideal than using a Price ID, but we can try to find a price or create one ad-hoc
-        // For this demo, we'll use hardcoded prices based on the product ID if needed, 
-        // or ideally the client sends the price ID.
-        
-        // Map Product IDs to amounts (in cents)
-        const prices: Record<string, number> = {
-          'prod_U6ya8Y5jxh2l3P': 3999, // V4.2 Proven Turbo ($39.99)
-          'prod_U6xawZia0AqzOR': 1999, // V4.1 Proven Enhanced ($19.99)
-        };
-
-        const amount = prices[productId];
-        
-        if (amount) {
-           sessionConfig.line_items = [
-            {
-              price_data: {
-                currency: 'usd',
-                product: productId,
-                unit_amount: amount,
-              },
-              quantity: 1,
-            },
-          ];
-        } else {
-            return res.status(400).json({ error: "Invalid product or price configuration." });
-        }
-      } else {
-        return res.status(400).json({ error: "Missing productId or priceId." });
-      }
-
-      const session = await stripe.checkout.sessions.create(sessionConfig);
-
-      res.json({ url: session.url });
-    } catch (error: any) {
-      console.error("Stripe error:", error);
-      // 6. Error Handling: No stack traces leaked
-      res.status(500).json({ error: "An error occurred while processing your request." });
-    }
   });
 
   // Global Error Handler
