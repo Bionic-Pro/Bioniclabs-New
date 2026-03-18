@@ -8,7 +8,7 @@ import { Footer } from './components/Footer';
 import { LegalModal } from './components/LegalModal';
 import { CookieConsent } from './components/CookieConsent';
 import { TradingIndicators } from './components/TradingIndicators';
-import { TRADING_PRODUCT, RIDE_OR_DIE_PRODUCT } from './constants';
+import { TRADING_PRODUCT, RIDE_OR_DIE_PRODUCT, ANAF_TRACKER_PRODUCT } from './constants';
 import { motion } from 'framer-motion';
 
 function App() {
@@ -99,6 +99,16 @@ function App() {
           variants={sectionVariants}
         >
           <VibeCardShowcase />
+        </motion.div>
+
+        {/* 3.5. ANAF Tracker Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={sectionVariants}
+        >
+          <GenericProductSection product={ANAF_TRACKER_PRODUCT} />
         </motion.div>
         
         {/* 4. Future Labs */}

@@ -33,6 +33,8 @@ export const Navbar: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href} 
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="text-sm text-gray-400 hover:text-white transition-colors uppercase tracking-wider font-medium"
             >
               {link.name}
@@ -63,6 +65,8 @@ export const Navbar: React.FC = () => {
                 <a 
                   key={link.name} 
                   href={link.href} 
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="text-lg text-gray-300 hover:text-white font-display"
                   onClick={() => setIsOpen(false)}
                 >

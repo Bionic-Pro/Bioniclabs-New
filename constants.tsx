@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { name: 'BionicAI', href: '#bionicai' },
   { name: 'Ride or Die', href: '#rideordie' },
   { name: 'VibeCard', href: '#vibecard' },
+  { name: 'ANAF Tracker', href: '#anaftracker' },
   { name: 'Incubation', href: '#future' },
 ];
 
@@ -27,6 +28,26 @@ export const TRADING_PRODUCT: ProductData = {
   icon: TrendingUp,
   imageUrl: 'https://images.unsplash.com/photo-1640340434855-6084b1f4901c?q=80&w=1600&auto=format&fit=crop', // Trendy BTC/USDT Candlestick Chart
   status: 'LIVE'
+};
+
+export const ANAF_TRACKER_PRODUCT: ProductData = {
+  id: 'anaftracker',
+  name: 'ANAF Tracker',
+  tagline: 'Asistentul Tău Fiscal Inteligent',
+  description: 'ANAF Tracker este aplicația esențială care transformă modul în care îți gestionezi obligațiile fiscale. Conceput special pentru antreprenorii și profesioniștii din România (SRL, PFA), centralizează și automatizează gestionarea tuturor interacțiunilor cu ANAF. Elimină stresul, evită penalitățile, economisește timp și permite concentrarea pe dezvoltarea afacerii.',
+  features: [
+    { label: 'Calendar Fiscal', detail: 'Toate termenele (D112, D300, etc.)' },
+    { label: 'Mementouri', detail: 'Notificări cu 7, 3 și 1 zi înainte' },
+    { label: 'Import SPV', detail: 'Verificare status declarații' },
+    { label: 'Multi-Firmă', detail: 'Suport pentru SRL și PFA' }
+  ],
+  ctaText: 'Află Mai Multe',
+  ctaUrl: 'https://declaratiilatimp.base44.app',
+  themeColor: 'blue',
+  icon: CreditCard,
+  imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop', // Tax/Accounting related image
+  status: 'IN DEVELOPMENT',
+  badge: 'NOU'
 };
 
 export const RIDE_OR_DIE_PRODUCT: ProductData = {

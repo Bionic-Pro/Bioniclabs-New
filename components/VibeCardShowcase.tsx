@@ -145,7 +145,7 @@ export const VibeCardShowcase: React.FC = () => {
 
             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
               The ultimate digital business card featuring gorgeous glass-morphism. 
-              Share your world instantly via QR, direct sharing or save the .csv directly to your phone.
+              Share your world instantly via QR, direct sharing or save the .csv directly to your phone. <span className="text-purple-300 font-bold">Try it free 1 card / name</span>
             </p>
 
             {/* Version Toggle */}
