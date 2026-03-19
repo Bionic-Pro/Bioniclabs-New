@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { name: 'Ride or Die', href: '#rideordie' },
   { name: 'VibeCard', href: '#vibecard' },
   { name: 'ANAF Tracker', href: '#anaftracker' },
-  { name: 'Incubation', href: '#future' },
+  { name: 'Incubation', href: '/incubation' },
 ];
 
 export const TRADING_PRODUCT: ProductData = {

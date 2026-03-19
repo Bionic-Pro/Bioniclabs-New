@@ -6,9 +6,6 @@ export const FutureLabs: React.FC = () => {
   return (
     <section id="future" className="py-32 relative bg-black group">
       
-      {/* Roadmap End Line */}
-      <div className="absolute top-0 left-6 md:left-1/2 w-[2px] h-32 bg-gradient-to-b from-white/5 to-transparent -translate-x-1/2 z-0" />
-      
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
       
       <div className="container mx-auto px-6 relative z-10 text-center">

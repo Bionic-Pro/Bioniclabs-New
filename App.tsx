@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { VibeCardShowcase } from './components/VibeCardShowcase';
@@ -11,14 +12,108 @@ import { TradingIndicators } from './components/TradingIndicators';
 import { TRADING_PRODUCT, RIDE_OR_DIE_PRODUCT, ANAF_TRACKER_PRODUCT } from './constants';
 import { motion } from 'framer-motion';
 
-function App() {
-  // const { scrollYProgress } = useScroll();
-  // const scaleX = useSpring(scrollYProgress, {
-  //   stiffness: 100,
-  //   damping: 30,
-  //   restDelta: 0.001
-  // });
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
 
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 100);
+    }
+  }, [pathname, hash]);
+  return null;
+}
+
+function Home() {
+  return (
+    <main className="relative">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <Hero />
+      </motion.div>
+      
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <GenericProductSection product={TRADING_PRODUCT} />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <TradingIndicators />
+      </motion.div>
+      
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <GenericProductSection product={RIDE_OR_DIE_PRODUCT} reverse={true} />
+      </motion.div>
+      
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <VibeCardShowcase />
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <GenericProductSection product={ANAF_TRACKER_PRODUCT} />
+      </motion.div>
+    </main>
+  );
+}
+
+function Incubation() {
+  return (
+    <main className="relative">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={sectionVariants}
+      >
+        <FutureLabs />
+      </motion.div>
+    </main>
+  );
+}
+
+function App() {
   const [legalModal, setLegalModal] = useState<{ isOpen: boolean; type: 'privacy' | 'terms' | 'cookies' | null }>({
     isOpen: false,
     type: null
@@ -32,95 +127,15 @@ function App() {
     setLegalModal({ ...legalModal, isOpen: false });
   };
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
-
   return (
     <div className="bg-bionic-900 text-white min-h-screen font-sans selection:bg-cyan-500/30 overflow-x-hidden">
-      {/* Scroll Progress Bar */}
-      {/* <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-red-500 origin-left z-[100]"
-        style={{ scaleX }}
-      /> */}
-
+      <ScrollToTop />
       <Navbar />
       
-      <main className="relative">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <Hero />
-        </motion.div>
-        
-        {/* 1. BionicAI Trading (Generic) - Default Order (Visual Left) */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <GenericProductSection product={TRADING_PRODUCT} />
-        </motion.div>
-
-        {/* 1.5. Trading Indicators (New Section) */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <TradingIndicators />
-        </motion.div>
-        
-        {/* 2. Ride Or Die (Generic) - Reverse Order (Visual Right) */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <GenericProductSection product={RIDE_OR_DIE_PRODUCT} reverse={true} />
-        </motion.div>
-        
-        {/* 3. VibeCard Section (Custom) - Modified to Visual Left */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <VibeCardShowcase />
-        </motion.div>
-
-        {/* 3.5. ANAF Tracker Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <GenericProductSection product={ANAF_TRACKER_PRODUCT} />
-        </motion.div>
-        
-        {/* 4. Future Labs */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <FutureLabs />
-        </motion.div>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/incubation" element={<Incubation />} />
+      </Routes>
       
       <motion.div
         initial="hidden"

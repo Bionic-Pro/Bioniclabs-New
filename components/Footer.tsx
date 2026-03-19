@@ -9,7 +9,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
   return (
     <footer id="footer" className="bg-bionic-900 pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
           
           <div className="max-w-xs">
             <div className="flex items-center gap-2 mb-6">
@@ -20,27 +20,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
                 Bionic<span className="text-cyan-400">.labs</span>
               </span>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent opacity-60">
               Building the future of digital interaction, financial freedom, and AI entertainment.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 w-full lg:w-auto flex-1">
             <div>
               <h4 className="text-white font-bold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#vibecard" className="hover:text-cyan-400 transition-colors">VibeCard</a></li>
-                <li><a href="#bionicai" className="hover:text-emerald-400 transition-colors">BionicAI Trading</a></li>
-                <li><a href="#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</a></li>
+                <li><a href="/#vibecard" className="hover:text-cyan-400 transition-colors">VibeCard</a></li>
+                <li><a href="/#bionicai" className="hover:text-emerald-400 transition-colors">BionicAI Trading</a></li>
+                <li><a href="/#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</a></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold mb-4">Incubation</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#clarity" className="hover:text-blue-400 transition-colors">ClarityLaw AI</a></li>
-                <li><a href="#bucatarasul" className="hover:text-yellow-400 transition-colors">Bucătărașul</a></li>
-                <li><a href="#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</a></li>
+                <li><a href="/incubation#clarity" className="hover:text-blue-400 transition-colors">ClarityLaw AI</a></li>
+                <li><a href="/incubation#bucatarasul" className="hover:text-yellow-400 transition-colors">Bucătărașul</a></li>
+                <li><a href="/incubation#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</a></li>
               </ul>
             </div>
             
@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             </div>
 
             <div>
-              <h4 className="text-white font-bold mb-4">Connect</h4>
+              <h4 className="text-white font-bold mb-4">Social</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
                   <a href="https://x.com/M3Bionic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
@@ -80,10 +80,34 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
                     <span>TikTok</span>
                   </a>
                 </li>
-                <li>
-                  <a href="mailto:m3bionic@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Mail size={16} />
-                    <span>m3bionic@gmail.com</span>
+              </ul>
+            </div>
+
+            <div className="col-span-2 md:col-span-3 lg:col-span-1">
+              <h4 className="text-white font-bold mb-4">Contact</h4>
+              <ul className="space-y-3 text-sm inline-flex flex-col">
+                <li className="w-full">
+                  <a href="mailto:help@appbioniclabs.xyz" className="flex items-center gap-3 w-full text-gray-300 hover:text-white transition-colors bg-white/5 p-2.5 rounded-lg border border-white/10 hover:border-purple-500/50 hover:bg-white/10">
+                    <Mail size={16} className="text-purple-400 shrink-0" />
+                    <span className="font-medium">help@appbioniclabs.xyz</span>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a href="mailto:support@appbioniclabs.xyz" className="flex items-center gap-3 w-full text-gray-300 hover:text-white transition-colors bg-white/5 p-2.5 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/10">
+                    <Mail size={16} className="text-cyan-400 shrink-0" />
+                    <span className="font-medium">support@appbioniclabs.xyz</span>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a href="mailto:contact@appbioniclabs.xyz" className="flex items-center gap-3 w-full text-gray-300 hover:text-white transition-colors bg-white/5 p-2.5 rounded-lg border border-white/10 hover:border-purple-500/50 hover:bg-white/10">
+                    <Mail size={16} className="text-purple-400 shrink-0" />
+                    <span className="font-medium">contact@appbioniclabs.xyz</span>
+                  </a>
+                </li>
+                <li className="w-full">
+                  <a href="mailto:info@appbioniclabs.xyz" className="flex items-center gap-3 w-full text-gray-300 hover:text-white transition-colors bg-white/5 p-2.5 rounded-lg border border-white/10 hover:border-cyan-500/50 hover:bg-white/10">
+                    <Mail size={16} className="text-cyan-400 shrink-0" />
+                    <span className="font-medium">info@appbioniclabs.xyz</span>
                   </a>
                 </li>
               </ul>
@@ -91,11 +115,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-600 text-sm">
+        <div className="border-t border-white/5 pt-12 pb-8 text-center flex flex-col justify-center items-center gap-6">
+          <p className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter bg-gradient-to-r from-purple-500 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent opacity-60 drop-shadow-[0_0_25px_rgba(168,85,247,0.6)]">
             © {new Date().getFullYear()} Bionic.labs. All rights reserved.
           </p>
-          <p className="text-gray-600 text-xs">
+          <p className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent opacity-60 drop-shadow-[0_0_25px_rgba(34,211,238,0.6)]">
             Designed for the bold.
           </p>
         </div>
