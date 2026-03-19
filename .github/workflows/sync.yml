@@ -10,15 +10,10 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Push to target repo
         env:
           TOKEN: ${{ secrets.TARGET_PAT }}
         run: |
-          git config --global --unset-all credential.helper
-          git remote add target https://tradeha42-cloud:$TOKEN@github.com/tradeha42-cloud/bioniclabs19032026.git
-          git push target main --force
+          git clone --bare https://github.com/Bionic-Pro/Bioniclabs-New.git repo
+          cd repo
+          git push --mirror https://tradeha42-cloud:$TOKEN@github.com/tradeha42-cloud/bioniclabs19032026.git
