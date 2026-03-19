@@ -19,8 +19,7 @@ jobs:
         env:
           TOKEN: ${{ secrets.TARGET_PAT }}
         run: |
-          echo "Token length: ${#TOKEN}"
           git config user.email "sync-bot@bioniclabs.xyz"
           git config user.name "Sync Bot"
-          git remote add target https://$TOKEN@github.com/tradeha42-cloud/bioniclabs19032026.git
+          git remote add target https://tradeha42-cloud:$TOKEN@github.com/tradeha42-cloud/bioniclabs19032026.git
           git push target main --force
