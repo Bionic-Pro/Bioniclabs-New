@@ -21,9 +21,11 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-[0.2em] text-cyan-400 border border-cyan-900/50 rounded-full bg-cyan-950/30 uppercase">
-            Digital Innovation Ecosystem
-          </span>
+          <div className="inline-block px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-900/20">
+            <span className="text-sm md:text-base font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              Digital Innovation Ecosystem
+            </span>
+          </div>
           <h1 className="text-5xl md:text-7xl lg:text-9xl font-display font-bold leading-tight mb-6">
             <span className="text-white">Bionic</span>
             <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">.labs</span>
