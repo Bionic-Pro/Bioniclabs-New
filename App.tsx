@@ -101,14 +101,7 @@ function Home() {
 function Incubation() {
   return (
     <main className="relative">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-      >
-        <FutureLabs />
-      </motion.div>
+      <FutureLabs />
     </main>
   );
 }
@@ -137,14 +130,7 @@ function App() {
         <Route path="/incubation" element={<Incubation />} />
       </Routes>
       
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        variants={sectionVariants}
-      >
-        <Footer onOpenLegal={handleOpenLegal} />
-      </motion.div>
+      <Footer onOpenLegal={handleOpenLegal} />
 
       <LegalModal 
         isOpen={legalModal.isOpen} 

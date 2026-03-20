@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Rocket } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isIncubation = location.pathname === '/incubation';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,14 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const renderLink = (link: { name: string; href: string }, className: string, onClick?: () => void) => {
-    if (link.href.startsWith('/')) {
+    const isInternal = link.href.startsWith('/') || link.href.startsWith('#');
+    
+    if (isInternal) {
+      const to = link.href.startsWith('#') ? `/${link.href}` : link.href;
       return (
         <Link 
           key={link.name} 
-          to={link.href} 
+          to={to} 
           className={className}
           onClick={onClick}
         >
@@ -29,18 +34,13 @@ export const Navbar: React.FC = () => {
         </Link>
       );
     }
-    
-    // For hashes, if we are not on home page, we should ideally link to /#hash
-    // We'll just use a standard <a> tag. If they are on /incubation and click a hash, 
-    // it won't work perfectly without a full URL. Let's make hashes absolute to home if needed.
-    const href = link.href.startsWith('#') ? `/${link.href}` : link.href;
 
     return (
       <a 
         key={link.name} 
-        href={href} 
-        target={link.href.startsWith('http') ? '_blank' : undefined}
-        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        href={link.href} 
+        target="_blank"
+        rel="noopener noreferrer"
         className={className}
         onClick={onClick}
       >
@@ -49,8 +49,12 @@ export const Navbar: React.FC = () => {
     );
   };
 
+  const navClasses = scrolled || isIncubation 
+    ? 'bg-bionic-900/80 backdrop-blur-lg border-b border-white/5 py-3' 
+    : 'bg-transparent py-5';
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-bionic-900/80 backdrop-blur-lg border-b border-white/5 py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navClasses}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white">

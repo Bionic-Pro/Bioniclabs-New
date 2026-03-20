@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, Twitter, Music, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface FooterProps {
   onOpenLegal: (type: 'privacy' | 'terms' | 'cookies') => void;
@@ -29,18 +30,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             <div>
               <h4 className="text-white font-bold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="/#vibecard" className="hover:text-cyan-400 transition-colors">VibeCard</a></li>
-                <li><a href="/#bionicai" className="hover:text-emerald-400 transition-colors">BionicAI Trading</a></li>
-                <li><a href="/#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</a></li>
+                <li><Link to="/#vibecard" className="hover:text-cyan-400 transition-colors">VibeCard</Link></li>
+                <li><Link to="/#bionicai" className="hover:text-emerald-400 transition-colors">BionicAI Trading</Link></li>
+                <li><Link to="/#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold mb-4">Incubation</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="/incubation#clarity" className="hover:text-blue-400 transition-colors">ClarityLaw AI</a></li>
-                <li><a href="/incubation#bucatarasul" className="hover:text-yellow-400 transition-colors">Bucătărașul</a></li>
-                <li><a href="/incubation#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</a></li>
+                <li><Link to="/incubation#clarity" className="hover:text-blue-400 transition-colors">ClarityLaw AI</Link></li>
+                <li><Link to="/incubation#bucatarasul" className="hover:text-yellow-400 transition-colors">Bucătărașul</Link></li>
+                <li><Link to="/incubation#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</Link></li>
               </ul>
             </div>
             

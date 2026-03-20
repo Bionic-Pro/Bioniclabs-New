@@ -21,8 +21,8 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block px-4 py-1.5 mb-6 border border-purple-500/30 rounded-full bg-purple-900/20">
-            <span className="text-sm md:text-base font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <div className="inline-block px-5 py-2 mb-6 border border-purple-500/30 rounded-full bg-purple-900/20">
+            <span className="text-base md:text-xl font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
               Digital Innovation Ecosystem
             </span>
           </div>
