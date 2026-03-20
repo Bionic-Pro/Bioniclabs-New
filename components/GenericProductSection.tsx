@@ -2,6 +2,7 @@ import React from 'react';
 import { ProductData } from '../types';
 import { motion } from 'framer-motion';
 import { CheckCircle, ExternalLink, UserPlus } from 'lucide-react';
+import { trackConversion } from '../utils/analytics';
 
 interface Props {
   product: ProductData;
@@ -111,6 +112,7 @@ export const GenericProductSection: React.FC<Props> = ({ product, reverse = fals
                 href={product.ctaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackConversion(1.0, 'RON')}
                 className={`inline-flex items-center gap-2 px-8 py-4 ${buttonClass} text-white font-bold rounded-lg transition-all shadow-lg transform hover:-translate-y-1 w-full sm:w-auto justify-center`}
               >
                 {product.ctaText} <ExternalLink size={18} />
@@ -121,6 +123,7 @@ export const GenericProductSection: React.FC<Props> = ({ product, reverse = fals
                   href={product.secondaryCtaUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackConversion(1.0, 'RON')}
                   className={`inline-flex items-center gap-2 px-8 py-4 ${secondaryButtonClass} font-bold rounded-lg transition-all transform hover:-translate-y-1 w-full sm:w-auto justify-center`}
                 >
                   {product.secondaryCtaText} <UserPlus size={18} />

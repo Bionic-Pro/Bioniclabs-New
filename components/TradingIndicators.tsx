@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, BarChart2, Activity, ShoppingCart, ArrowRight, RotateCcw, Check } from 'lucide-react';
+import { trackConversion } from '../utils/analytics';
 
 const INDICATORS = [
   {
@@ -140,6 +141,10 @@ export const TradingIndicators: React.FC = () => {
                         href={indicator.link}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => {
+                          const value = indicator.price === 'Free' ? 0 : parseFloat(indicator.price.replace('$', ''));
+                          trackConversion(value, 'USD');
+                        }}
                         className="flex-1 py-3 bg-white/5 hover:bg-emerald-600 hover:text-white text-gray-300 font-bold rounded-xl border border-white/10 hover:border-emerald-500/50 transition-all flex items-center justify-center gap-2 group/btn"
                       >
                         <span>{indicator.price === 'Free' ? 'Get Free' : 'Try Now'}</span>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Star, Zap, Smartphone, ArrowRight, Share2, Phone, Mail, Download } from 'lucide-react';
+import { trackConversion } from '../utils/analytics';
 
 export const VibeCardShowcase: React.FC = () => {
   const [version, setVersion] = useState<'v1' | 'v2'>('v1');
@@ -203,6 +204,7 @@ export const VibeCardShowcase: React.FC = () => {
                       href="https://vibecard.digital" 
                       target="_blank" 
                       rel="noopener noreferrer"
+                      onClick={() => trackConversion(20.0, 'USD')}
                       className="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg transition-all shadow-lg shadow-purple-900/20 w-full sm:w-auto justify-center hover:-translate-y-1"
                     >
                       Get Your Card Now <ArrowRight size={18} />
