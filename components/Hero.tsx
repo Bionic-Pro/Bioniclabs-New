@@ -39,9 +39,6 @@ export const Hero: React.FC = () => {
             <a href="#bionicai" className="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all transform hover:scale-105">
               Explore Apps
             </a>
-            <a href="#future" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-lg hover:bg-white/10 transition-all backdrop-blur-md">
-              Future Labs
-            </a>
           </div>
         </motion.div>
       </div>
