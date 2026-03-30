@@ -62,7 +62,7 @@ export const RIDE_OR_DIE_PRODUCT: ProductData = {
     { label: 'Perplexity AI', detail: 'Built on latest LLMs' }
   ],
   ctaText: 'Take the Quiz',
-  ctaUrl: 'https://fuckin-ride-or-die-8e74248f.base44.app',
+  ctaUrl: 'https://ride-or-die-8e74248f.base44.app',
   themeColor: 'red',
   icon: Flame,
   imageUrl: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?q=80&w=1600&auto=format&fit=crop', // Neon sports car
