@@ -32,11 +32,11 @@ export const Hero: React.FC = () => {
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 leading-relaxed mb-10">
             A portfolio of cutting-edge digital tools designed for the bold. 
-            From glass-morphic networking to high-frequency trading and rebellious AI entertainment.
+            From glass-morphic networking to rebellious AI entertainment and smart tax tracking.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#bionicai" className="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all transform hover:scale-105">
+            <a href="#rideordie" className="px-8 py-4 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-all transform hover:scale-105">
               Explore Apps
             </a>
           </div>

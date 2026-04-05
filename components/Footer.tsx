@@ -31,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               <h4 className="text-white font-bold mb-4">Products</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><Link to="/#vibecard" className="hover:text-cyan-400 transition-colors">VibeCard</Link></li>
-                <li><Link to="/#bionicai" className="hover:text-emerald-400 transition-colors">BionicAI Trading</Link></li>
                 <li><Link to="/#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</Link></li>
+                <li><Link to="/#anaftracker" className="hover:text-blue-400 transition-colors">ANAF Tracker</Link></li>
               </ul>
             </div>
 

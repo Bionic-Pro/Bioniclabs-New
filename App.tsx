@@ -8,8 +8,7 @@ import { FutureLabs } from './components/FutureLabs';
 import { Footer } from './components/Footer';
 import { LegalModal } from './components/LegalModal';
 import { CookieConsent } from './components/CookieConsent';
-import { TradingIndicators } from './components/TradingIndicators';
-import { TRADING_PRODUCT, RIDE_OR_DIE_PRODUCT, ANAF_TRACKER_PRODUCT } from './constants';
+import { RIDE_OR_DIE_PRODUCT, ANAF_TRACKER_PRODUCT } from './constants';
 import { motion } from 'framer-motion';
 
 const sectionVariants = {
@@ -56,25 +55,7 @@ function Home() {
         viewport={{ once: true, margin: "-100px" }}
         variants={sectionVariants}
       >
-        <GenericProductSection product={TRADING_PRODUCT} />
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-      >
-        <TradingIndicators />
-      </motion.div>
-      
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-      >
-        <GenericProductSection product={RIDE_OR_DIE_PRODUCT} reverse={true} />
+        <GenericProductSection product={RIDE_OR_DIE_PRODUCT} reverse={false} />
       </motion.div>
       
       <motion.div
