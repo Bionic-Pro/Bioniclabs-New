@@ -1,5 +1,5 @@
 import React from 'react';
-import { Rocket, Twitter, Music, Mail } from 'lucide-react';
+import { Rocket, Music, Mail, Linkedin, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface FooterProps {
@@ -33,6 +33,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
                 <li><Link to="/#vibecard" className="hover:text-cyan-400 transition-colors">VibeCard</Link></li>
                 <li><Link to="/#rideordie" className="hover:text-red-400 transition-colors">F*ckin' Ride Or Die</Link></li>
                 <li><Link to="/#anaftracker" className="hover:text-blue-400 transition-colors">ANAF Tracker</Link></li>
+                <li><Link to="/#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</Link></li>
               </ul>
             </div>
 
@@ -41,7 +42,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><Link to="/incubation#clarity" className="hover:text-blue-400 transition-colors">ClarityLaw AI</Link></li>
                 <li><Link to="/incubation#bucatarasul" className="hover:text-yellow-400 transition-colors">Bucătărașul</Link></li>
-                <li><Link to="/incubation#momentum" className="hover:text-emerald-400 transition-colors">Momentum Engine</Link></li>
               </ul>
             </div>
             
@@ -70,9 +70,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
               <h4 className="text-white font-bold mb-4">Social</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <a href="https://x.com/M3Bionic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-                    <Twitter size={16} />
-                    <span>Twitter</span>
+                  <a href="https://www.linkedin.com/in/paul-horatiu-8806a62b1/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Linkedin size={16} />
+                    <span>LinkedIn</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@m3bionic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <Youtube size={16} />
+                    <span>YouTube</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bsky.app/profile/bionicai.bsky.social" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+                    <svg viewBox="0 0 320 286" width="16" height="16" fill="currentColor">
+                      <path d="M69.364 19.146c36.687 27.806 76.147 84.186 90.636 114.439 14.489-30.253 53.949-86.633 90.636-114.439 33.411-25.334 76.578-32.067 69.364 27.91-2.015 16.744-9.56 61.054-12.87 71.344-11.23 34.912-49.08 43.845-81.42 38.006 42.13 6.94 63.02 24.08 59.6 54.4-3.42 30.32-38.35 44.5-62.11 39.54-23.76-4.96-54.67-28.74-63.19-45.64-8.52 16.9-39.43 40.68-63.19 45.64-23.76 4.96-58.69-9.22-62.11-39.54-3.42-30.32 17.47-47.46 59.6-54.4-32.34 5.839-70.19-3.094-81.42-38.006-3.31-10.29-10.855-54.6-12.87-71.344-7.214-59.977 35.953-53.244 69.364-27.91z"/>
+                    </svg>
+                    <span>Bluesky</span>
                   </a>
                 </li>
                 <li>

@@ -18,6 +18,6 @@ export interface ProductData {
   themeColor: string; // Tailwind class safe color name
   icon: LucideIcon;
   imageUrl: string;
-  status: 'LIVE' | 'BETA' | 'COMING SOON';
+  status: 'LIVE' | 'BETA' | 'COMING SOON' | 'IN DEVELOPMENT';
   badge?: string;
 }

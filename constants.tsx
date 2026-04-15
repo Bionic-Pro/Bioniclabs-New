@@ -3,6 +3,7 @@ import { CreditCard, TrendingUp, Flame } from 'lucide-react';
 
 export const NAV_LINKS = [
   { name: 'Ride or Die', href: '#rideordie' },
+  { name: 'Momentum Engine', href: '#momentum' },
   { name: 'VibeCard', href: '#vibecard' },
   { name: 'ANAF Tracker', href: '#anaftracker' },
   { name: 'Incubation', href: '/incubation' },
